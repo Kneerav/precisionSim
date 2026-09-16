@@ -26,3 +26,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/Kneerav/precisionSim
+BugReports: https://github.com/Kneerav/precisionSim/issues
