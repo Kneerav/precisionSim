@@ -1,0 +1,28 @@
+Package: precisionSim
+Type: Package
+Title: Estimate Sample Size For Linear Mixed Models Based On Precision
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Nirav", "Maniar",
+      email = "Nirav.Maniar@acu.edu.au",
+      role = c("aut", "cre")
+    )
+  )
+Description: Estimates the probability the user-defined estimands achieve pre-specified confidence interval widths from linear mixed models. Methods are provided for single samples or for multiple candidate sample sizes.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Config/roxygen2/version: 8.1.0
+Imports: 
+    dplyr (>= 1.2.0),
+    ggplot2 (>= 4.0.2),
+    lme4 (>= 1.1.38),
+    rlang (>= 1.3.0),
+    simr (>= 1.0.10),
+    stats (>= 4.5.2),
+    tidyr (>= 1.3.2)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
