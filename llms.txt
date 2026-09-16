@@ -1,0 +1,108 @@
+This package provides functions to perform determine sample size for
+linear mixed models based on precision.
+
+## Basic installation
+
+Basic installation can be done via the `install_github()` function from
+the `remotes` package.
+
+`{r} #install the package remotes::install_github("Kneerav/precisionSim")`
+
+Once installed, you can load the library and use the various functions.
+
+`{r} library(precisionSim)`
+
+## Basic usage
+
+\`\`\`{r} library(lme4) library(precisionSim)
+
+\#create model mod1 \<- lmer(peak_force ~ task + (1\|participant),
+data=fake_data)
+
+\#define function that extracts the interval of interest
+interval_function \<- function(fitted_model){
+
+\#fit emmeans em_df \<- emmeans::emmeans(fitted_model, pairwise ~ task)
+
+\#get ci ci \<- as.data.frame( confint( em_df\$contrasts, level = 0.95,
+adjust=“none” ) )
+
+\#return object return( data.frame( estimand = ci$`contrast,
+      estimate = ci`$estimate, lower = ci$`lower.CL,
+      upper = ci`$upper.CL ) ) }
+
+\#run precision sim sim1 \<- precisionSim( fit = mod1, target_width =
+c(0.1, 0.2), interval_fun = interval_function, prob = 0.80,
+mc_conf_level = 0.95, nsim = 100, seed = 123456, singular_action =
+“include”, nonconverged_action = “exclude”, tol = 1e-4 )
+
+\#check summary(sim1)
+
+\#plot plot(sim1, type=“assurance”)
+
+\#plot plot(sim1, type=“distribution”)
+
+\#recheck quantiles quantile(sim1, prob = c(0.5, 0.8)) \`\`\`
+
+## Documentation
+
+Full documentation and vignettes are hosted here:
+<https://kneerav.github.io/precisionSim/index.html>
+
+## Related work
+
+The package uses model-fitting and simulation functionality provided by
+lme4 and design-extension functionality provided by simr.
+
+This work was inspired by the simr package, which uses simulated to
+determine statistical power for mixed models. To expand on this
+framework (based around significance testing), this package uses
+simulation to determine confidence interval widths for a user-supplied
+estimand of interest from a linear mixed model from the lme4 package.
+This estimand may be a model coefficient, a marginal mean, or a pairwise
+contrast of interest.
+
+Similar to the simr package, functions are provided to determine the
+assurance probability for a pre-specified confidence interval width, or
+to generate a series of assurance probabilities at different simulated
+sample sizes (using simr::extend()).
+
+## Acknowledgements
+
+Microsoft 365 Copilot was used as a conversational aid during package
+development, including discussion of simulation methodology, package
+architecture, S3 conventions, validation, testing, and documentation.
+The tool also generated initial drafts of portions of the roxygen2
+documentation and validation functions.
+
+## Citation
+
+Maniar, N. (2026). precisionSim (Version 0.1) \[Computer software\].
+
+# Package index
+
+## All functions
+
+- [`print(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
+  [`summary(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
+  [`as.data.frame(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
+  [`quantile(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
+  [`plot(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
+  [`precisionCurve()`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
+  : Print a precision curve
+- [`print(`*`<precisionSim>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionSim.md)
+  [`summary(`*`<precisionSim>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionSim.md)
+  [`as.data.frame(`*`<precisionSim>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionSim.md)
+  [`quantile(`*`<precisionSim>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionSim.md)
+  [`plot(`*`<precisionSim>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionSim.md)
+  [`precisionSim()`](https://kneerav.github.io/precisionSim/reference/precisionSim.md)
+  : Print a precision simulation
+
+# Articles
+
+### All vignettes
+
+- [Simulate confidence interval widths at pre-specified
+  assurance](https://kneerav.github.io/precisionSim/articles/simulate-assurance.md):
+- [Simulate confidence interval widths at multiple sample
+  sizes](https://kneerav.github.io/precisionSim/articles/simulate-sample-sizes.md):
