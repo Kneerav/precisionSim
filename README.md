@@ -4,20 +4,20 @@ This package provides functions to perform determine sample size for linear mixe
 
 Basic installation can be done via the `install_github()` function from the `remotes` package.
 
-```{r}
+``` r
 #install the package
 remotes::install_github("Kneerav/precisionSim")
 ```
 
 Once installed, you can load the library and use the various functions.
 
-```{r}
+``` r
 library(precisionSim)
 ```
 
 ## Basic usage
 
-```{r}
+``` r
 library(lme4)
 library(precisionSim)
 
