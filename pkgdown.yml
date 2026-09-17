@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   simulate-assurance: simulate-assurance.html
   simulate-sample-sizes: simulate-sample-sizes.html
-last_built: 2026-09-16T05:12Z
+last_built: 2026-09-17T01:50Z
 urls:
   reference: https://kneerav.github.io/precisionSim/reference
   article: https://kneerav.github.io/precisionSim/articles

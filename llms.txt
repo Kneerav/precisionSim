@@ -6,43 +6,79 @@ linear mixed models based on precision.
 Basic installation can be done via the `install_github()` function from
 the `remotes` package.
 
-`{r} #install the package remotes::install_github("Kneerav/precisionSim")`
+``` r
+
+#install the package
+remotes::install_github("Kneerav/precisionSim")
+```
 
 Once installed, you can load the library and use the various functions.
 
-`{r} library(precisionSim)`
+``` r
+
+library(precisionSim)
+```
 
 ## Basic usage
 
-\`\`\`{r} library(lme4) library(precisionSim)
+``` r
 
-\#create model mod1 \<- lmer(peak_force ~ task + (1\|participant),
-data=fake_data)
+library(lme4)
+library(precisionSim)
 
-\#define function that extracts the interval of interest
-interval_function \<- function(fitted_model){
+#create model
+mod1 <- lmer(peak_force ~ task + (1|participant), data=fake_data)
 
-\#fit emmeans em_df \<- emmeans::emmeans(fitted_model, pairwise ~ task)
+#define function that extracts the interval of interest
+interval_function <- function(fitted_model){
 
-\#get ci ci \<- as.data.frame( confint( em_df\$contrasts, level = 0.95,
-adjust=“none” ) )
+  #fit emmeans
+  em_df <- emmeans::emmeans(fitted_model, pairwise ~ task)
 
-\#return object return( data.frame( estimand = ci$`contrast,
-      estimate = ci`$estimate, lower = ci$`lower.CL,
-      upper = ci`$upper.CL ) ) }
+  #get ci
+  ci <- as.data.frame(
+    confint(
+      em_df$contrasts, level = 0.95, adjust="none"
+    )
+  )
 
-\#run precision sim sim1 \<- precisionSim( fit = mod1, target_width =
-c(0.1, 0.2), interval_fun = interval_function, prob = 0.80,
-mc_conf_level = 0.95, nsim = 100, seed = 123456, singular_action =
-“include”, nonconverged_action = “exclude”, tol = 1e-4 )
+  #return object
+  return(
+    data.frame(
+      estimand = ci$contrast,
+      estimate = ci$estimate,
+      lower = ci$lower.CL,
+      upper = ci$upper.CL
+    )
+  )
+}
 
-\#check summary(sim1)
+#run precision sim
+sim1 <- precisionSim(
+  fit = mod1,
+  target_width = c(0.1, 0.2),
+  interval_fun = interval_function,
+  prob = 0.80,
+  mc_conf_level = 0.95,
+  nsim = 100,
+  seed = 123456,
+  singular_action = "include",
+  nonconverged_action = "exclude",
+  tol = 1e-4
+)
 
-\#plot plot(sim1, type=“assurance”)
+#check
+summary(sim1)
 
-\#plot plot(sim1, type=“distribution”)
+#plot
+plot(sim1, type="assurance")
 
-\#recheck quantiles quantile(sim1, prob = c(0.5, 0.8)) \`\`\`
+#plot
+plot(sim1, type="distribution")
+
+#recheck quantiles
+quantile(sim1, prob = c(0.5, 0.8))
+```
 
 ## Documentation
 

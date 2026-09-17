@@ -103,7 +103,7 @@ summary(sim1)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 210.262
+#> Elapsed time: 169.916
 ```
 
 ## Visualise

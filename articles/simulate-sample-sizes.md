@@ -119,7 +119,7 @@ summary(sim1)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 615.264
+#> Elapsed time: 501.554
 ```
 
 You can see that once we hit n=30, our lowest confidence interval width
