@@ -2,9 +2,10 @@ pandoc: 3.8.3
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
+  estimand-functions: estimand-functions.html
   simulate-assurance: simulate-assurance.html
   simulate-sample-sizes: simulate-sample-sizes.html
-last_built: 2026-09-17T01:50Z
+last_built: 2026-09-17T02:35Z
 urls:
   reference: https://kneerav.github.io/precisionSim/reference
   article: https://kneerav.github.io/precisionSim/articles

@@ -35,7 +35,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/simulate-assurance.html">Simulate confidence interval widths at pre-specified assurance</a></li>
+<li><a class="dropdown-item" href="articles/estimand-functions.html">Custom estimand functions: means and contrasts</a></li>
+    <li><a class="dropdown-item" href="articles/simulate-assurance.html">Simulate confidence interval widths at pre-specified assurance</a></li>
     <li><a class="dropdown-item" href="articles/simulate-sample-sizes.html">Simulate confidence interval widths at multiple sample sizes</a></li>
   </ul>
 </li>
@@ -78,7 +79,7 @@
 <span><span class="va">interval_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">fitted_model</span><span class="op">)</span><span class="op">{</span></span>
 <span></span>
 <span>  <span class="co">#fit emmeans</span></span>
-<span>  <span class="va">em_df</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="fu">::</span><span class="fu">emmeans</span><span class="op">(</span><span class="va">fitted_model</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">task</span><span class="op">)</span></span>
+<span>  <span class="va">em_df</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="fu">::</span><span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fitted_model</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">task</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="co">#get ci</span></span>
 <span>  <span class="va">ci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span></span>
