@@ -104,6 +104,7 @@ print.precisionCurve <- function(x, digits = 2, ...) {
   cat("Simulations requested:",settings$nsim, "\n")
   cat("Target probability:", format(100 * settings$prob,digits = digits),"%\n")
   cat("Monte Carlo confidence level:",format(100 * settings$mc_conf_level,digits = digits),"%\n\n")
+  cat("nlevels along variable: ",settings$along, "\n")
 
   #create table
   output <- x$summary
@@ -159,6 +160,7 @@ summary.precisionCurve <- function(object, digits = 2, ...) {
   cat("Simulations requested:",settings$nsim, "\n")
   cat("Target probability:", format(100 * settings$prob,digits = digits),"%\n")
   cat("Monte Carlo confidence level:",format(100 * settings$mc_conf_level,digits = digits),"%\n\n")
+  cat("nlevels along variable: ",settings$along, "\n")
 
   #create table
   output <- object$summary

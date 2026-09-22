@@ -140,8 +140,12 @@ precisionSim <- function(
     stop("fit must be an lme4 linear mixed model")
   }
 
-  if(prob < 0 || prob > 1){
-    stop("prob must be between 0 and 1")
+  if(any(!is.finite(target_width)) || length(target_width) == 0L || any(target_width <= 0)){
+    stop("target_width must be a non-empty vector with finite values greater than 0")
+  }
+
+  if(any(!is.finite(prob)) || length(prob) == 0L || any(prob < 0 | prob > 1)){
+    stop("prob must be a non-empty vector with finite values between 0 and 1")
   }
 
   if(mc_conf_level < 0 || mc_conf_level > 1){

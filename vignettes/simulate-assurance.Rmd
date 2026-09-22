@@ -101,3 +101,21 @@ We can also take our results, and determine with confidence interval width at a 
 #determine widths at 50%, 75% and 90% assurance levels
 quantile(sim1, prob = c(0.5, 0.75, 0.9))
 ```
+
+# Re-run assurance tests
+
+In some instances, we may want to re-run the assurance test with different parameters (e.g., assurance probabilities of target widths), but we don't necessarily need to re-run the computationally demanding simulations. In this instance, we can use the `assurance_test()` function.
+
+```{r}
+sim1_r <- assurance_test(sim1, target_width = c(2.5, 3.5))
+```
+
+This returns an object of the same structure as the original input object (i.e., `precisionSim` or `precisionCurve`). 
+
+```{r}
+#summary
+summary(sim1_r)
+
+#visualise
+plot(sim1_r)
+```
