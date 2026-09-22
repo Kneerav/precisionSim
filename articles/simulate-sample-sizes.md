@@ -102,6 +102,7 @@ summary(sim1)
 #> Target probability: 80 %
 #> Monte Carlo confidence level: 95 %
 #> 
+#> nlevels along variable:  Subject 
 #>  Estimand nlevels nrow Width Assurance Monte Carlo CI
 #>  Days     20      200  3     47%       36.94%, 57.24%
 #>  Days     20      200  4     100%      96.38%, 100%  
@@ -119,7 +120,7 @@ summary(sim1)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 678.212
+#> Elapsed time: 692.582
 ```
 
 You can see that once we hit n=30, our lowest confidence interval width
@@ -176,3 +177,55 @@ quantile(sim1, prob = c(0.5, 0.75, 0.9))
 #> 8     Days      40 0.75 2.164022
 #> 9     Days      40 0.90 2.197490
 ```
+
+## Re-run assurance tests
+
+In some instances, we may want to re-run the assurance test with
+different parameters (e.g., assurance probabilities of target widths),
+but we don’t necessarily need to re-run the computationally demanding
+simulations. In this instance, we can use the
+[`assurance_test()`](https://kneerav.github.io/precisionSim/reference/assurance_test.md)
+function.
+
+``` r
+
+sim1_r <- assurance_test(sim1, target_width = c(2.5, 3.5))
+```
+
+This returns an object of the same structure as the original input
+object (i.e., `precisionCurve` or `precisionSim`).
+
+``` r
+
+#summary
+summary(sim1_r)
+#> Precision analysis by simulation
+#> ===============================
+#> 
+#> Model: Reaction ~ Days + (1 | Subject) 
+#> Simulations requested: 100 
+#> Target probability: 80 %
+#> Monte Carlo confidence level: 95 %
+#> 
+#> nlevels along variable:  Subject 
+#>  Estimand nlevels nrow Width Assurance Monte Carlo CI
+#>  Days     20      200  2.5   0%        0%, 3.62%     
+#>  Days     20      200  3.5   100%      96.38%, 100%  
+#>  Days     30      300  2.5   65%       54.82%, 74.27%
+#>  Days     30      300  3.5   100%      96.38%, 100%  
+#>  Days     40      400  2.5   100%      96.38%, 100%  
+#>  Days     40      400  3.5   100%      96.38%, 100%  
+#> 
+#> Diagnostics:
+#>   Failed fits: 0 
+#>   Non-converged fits: 0 
+#>   Singular fits: 0 
+#>   Interval failures: 0 
+#> 
+#> Elapsed time: 692.582
+
+#visualise
+plot(sim1_r)
+```
+
+![](simulate-sample-sizes_files/figure-html/unnamed-chunk-10-1.png)

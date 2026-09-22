@@ -103,7 +103,7 @@ summary(sim1)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 231.744
+#> Elapsed time: 234.905
 ```
 
 ## Visualise
@@ -140,3 +140,50 @@ quantile(sim1, prob = c(0.5, 0.75, 0.9))
 #>           50%      75%     90%
 #> Days 3.160141 3.280826 3.35031
 ```
+
+## Re-run assurance tests
+
+In some instances, we may want to re-run the assurance test with
+different parameters (e.g., assurance probabilities of target widths),
+but we don’t necessarily need to re-run the computationally demanding
+simulations. In this instance, we can use the
+[`assurance_test()`](https://kneerav.github.io/precisionSim/reference/assurance_test.md)
+function.
+
+``` r
+
+sim1_r <- assurance_test(sim1, target_width = c(2.5, 3.5))
+```
+
+This returns an object of the same structure as the original input
+object (i.e., `precisionSim` or `precisionCurve`).
+
+``` r
+
+#summary
+summary(sim1_r)
+#> Precision analysis by simulation
+#> ===============================
+#> 
+#> Model: Reaction ~ Days + (1 | Subject) 
+#> Simulations requested: 100 
+#> Target probability: 80 %
+#> Monte Carlo confidence level: 95 %
+#> 
+#>  Estimand Width Assurance Monte Carlo CI
+#>  Days     2.5   0%        0%, 3.62%     
+#>  Days     3.5   99%       94.55%, 99.97%
+#> 
+#> Diagnostics:
+#>   Failed fits: 0 
+#>   Non-converged fits: 0 
+#>   Singular fits: 0 
+#>   Interval failures: 0 
+#> 
+#> Elapsed time: 234.905
+
+#visualise
+plot(sim1_r)
+```
+
+![](simulate-assurance_files/figure-html/unnamed-chunk-9-1.png)

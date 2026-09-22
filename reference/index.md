@@ -2,6 +2,8 @@
 
 ## All functions
 
+- [`assurance_test()`](https://kneerav.github.io/precisionSim/reference/assurance_test.md)
+  : Re-evaluate precision assurance
 - [`print(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
   [`summary(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
   [`as.data.frame(`*`<precisionCurve>`*`)`](https://kneerav.github.io/precisionSim/reference/precisionCurve.md)
