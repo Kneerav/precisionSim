@@ -23,7 +23,7 @@ library(precisionSim)
 
 # Create a model
 
-We'll use the sleepstudy data from the `lme4` package, and create a very simple model. In practice, this could be pilot data or from another (related) study.
+We'll use the cake data from the `lme4` package, and create a very simple model. In practice, this could be pilot data or from another (related) study.
 
 ```{r}
 #get data
@@ -38,7 +38,7 @@ model_cake <- lme4::lmer(angle ~ recipe + temp + (1 | recipe:replicate), data = 
 
 In the first instance, we demonstrate a function that estimates the marginal means and 95%CI using the `emmeans` package. 
 
-The package expects a function that takes the lme4 model as an input, and produces a data.frame with columns for 'estimand', 'estimate', 'lower', and 'upper'. Here, we just do so for the beta coefficient for 'Task': 
+The package expects a function that takes the lme4 model as an input, and produces a data.frame with columns for 'estimand', 'estimate', 'lower', and 'upper'. 
 
 ```{r}
 #marginal means function

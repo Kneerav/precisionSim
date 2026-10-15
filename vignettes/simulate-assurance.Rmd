@@ -35,7 +35,7 @@ mod1 <- lme4::lmer(Reaction ~ Days + (1|Subject), data = data_sleep)
 
 # Create the interval function
 
-We then need to create a custom function that take the lme4 model as an input, and produces a data.frame with columns for 'estimand', 'estimate', 'lower', and 'upper'. Here, we just do so for the beta coefficient for 'Task': 
+We then need to create a custom function that take the lme4 model as an input, and produces a data.frame with columns for 'estimand', 'estimate', 'lower', and 'upper'. Here, we just do so for the beta coefficient for 'Days': 
 
 ```{r}
 #define function to get interval of interest
