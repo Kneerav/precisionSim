@@ -41,7 +41,7 @@ mod_extended <- simr::extend(mod1, along = "Subject", n = 40)
 We then need to create a custom function that take the lme4 model as an
 input, and produces a data.frame with columns for ‘estimand’,
 ‘estimate’, ‘lower’, and ‘upper’. Here, we just do so for the beta
-coefficient for ‘Task’:
+coefficient for ‘Days’:
 
 ``` r
 
@@ -120,7 +120,7 @@ summary(sim1)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 692.582
+#> Elapsed time: 506.647
 ```
 
 You can see that once we hit n=30, our lowest confidence interval width
@@ -222,7 +222,7 @@ summary(sim1_r)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 692.582
+#> Elapsed time: 506.647
 
 #visualise
 plot(sim1_r)

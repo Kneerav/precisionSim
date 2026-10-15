@@ -102,7 +102,7 @@ size of our model to n=50:</p>
 <p>We then need to create a custom function that take the lme4 model as
 an input, and produces a data.frame with columns for ‘estimand’,
 ‘estimate’, ‘lower’, and ‘upper’. Here, we just do so for the beta
-coefficient for ‘Task’:</p>
+coefficient for ‘Days’:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#define function to get interval of interest</span></span>
 <span><span class="va">interval_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">fitted_model</span><span class="op">)</span><span class="op">{</span></span>
@@ -173,7 +173,7 @@ simplicity and efficiency we just run 100</p>
 <span><span class="co">#&gt;   Singular fits: 0 </span></span>
 <span><span class="co">#&gt;   Interval failures: 0 </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Elapsed time: 692.582</span></span></code></pre></div>
+<span><span class="co">#&gt; Elapsed time: 506.647</span></span></code></pre></div>
 <p>You can see that once we hit n=30, our lowest confidence interval
 width of 3 was achieved 100% of the time.</p>
 </div>
@@ -255,7 +255,7 @@ object (i.e., <code>precisionCurve</code> or
 <span><span class="co">#&gt;   Singular fits: 0 </span></span>
 <span><span class="co">#&gt;   Interval failures: 0 </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Elapsed time: 692.582</span></span>
+<span><span class="co">#&gt; Elapsed time: 506.647</span></span>
 <span></span>
 <span><span class="co">#visualise</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sim1_r</span><span class="op">)</span></span></code></pre></div>

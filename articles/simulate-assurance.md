@@ -27,7 +27,7 @@ mod1 <- lme4::lmer(Reaction ~ Days + (1|Subject), data = data_sleep)
 We then need to create a custom function that take the lme4 model as an
 input, and produces a data.frame with columns for ‘estimand’,
 ‘estimate’, ‘lower’, and ‘upper’. Here, we just do so for the beta
-coefficient for ‘Task’:
+coefficient for ‘Days’:
 
 ``` r
 
@@ -103,7 +103,7 @@ summary(sim1)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 234.905
+#> Elapsed time: 172.934
 ```
 
 ## Visualise
@@ -180,7 +180,7 @@ summary(sim1_r)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 234.905
+#> Elapsed time: 172.934
 
 #visualise
 plot(sim1_r)

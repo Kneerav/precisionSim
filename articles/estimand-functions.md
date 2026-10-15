@@ -9,7 +9,7 @@ library(precisionSim)
 
 ## Create a model
 
-We’ll use the sleepstudy data from the `lme4` package, and create a very
+We’ll use the cake data from the `lme4` package, and create a very
 simple model. In practice, this could be pilot data or from another
 (related) study.
 
@@ -29,8 +29,7 @@ marginal means and 95%CI using the `emmeans` package.
 
 The package expects a function that takes the lme4 model as an input,
 and produces a data.frame with columns for ‘estimand’, ‘estimate’,
-‘lower’, and ‘upper’. Here, we just do so for the beta coefficient for
-‘Task’:
+‘lower’, and ‘upper’.
 
 ``` r
 
@@ -107,7 +106,7 @@ summary(sim1)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 8.535
+#> Elapsed time: 6.527
 ```
 
 ### Visualise
@@ -209,7 +208,7 @@ summary(sim2)
 #>   Singular fits: 0 
 #>   Interval failures: 0 
 #> 
-#> Elapsed time: 8.655
+#> Elapsed time: 6.43
 ```
 
 ### Visualise

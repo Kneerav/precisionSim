@@ -75,7 +75,7 @@
 <div class="section level2">
 <h2 id="create-a-model">Create a model<a class="anchor" aria-label="anchor" href="#create-a-model"></a>
 </h2>
-<p>We’ll use the sleepstudy data from the <code>lme4</code> package, and
+<p>We’ll use the cake data from the <code>lme4</code> package, and
 create a very simple model. In practice, this could be pilot data or
 from another (related) study.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -92,8 +92,7 @@ from another (related) study.</p>
 marginal means and 95%CI using the <code>emmeans</code> package.</p>
 <p>The package expects a function that takes the lme4 model as an input,
 and produces a data.frame with columns for ‘estimand’, ‘estimate’,
-‘lower’, and ‘upper’. Here, we just do so for the beta coefficient for
-‘Task’:</p>
+‘lower’, and ‘upper’.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#marginal means function</span></span>
 <span><span class="va">recipe_means</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">fitted_model</span><span class="op">)</span> <span class="op">{</span></span>
@@ -161,7 +160,7 @@ but for the real thing, do more (e.g., 5000).</p>
 <span><span class="co">#&gt;   Singular fits: 0 </span></span>
 <span><span class="co">#&gt;   Interval failures: 0 </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Elapsed time: 8.535</span></span></code></pre></div>
+<span><span class="co">#&gt; Elapsed time: 6.527</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="visualise">Visualise<a class="anchor" aria-label="anchor" href="#visualise"></a>
@@ -255,7 +254,7 @@ width at a pre-specified assurance probability.</p>
 <span><span class="co">#&gt;   Singular fits: 0 </span></span>
 <span><span class="co">#&gt;   Interval failures: 0 </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Elapsed time: 8.655</span></span></code></pre></div>
+<span><span class="co">#&gt; Elapsed time: 6.43</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="visualise-1">Visualise<a class="anchor" aria-label="anchor" href="#visualise-1"></a>
